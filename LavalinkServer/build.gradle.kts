@@ -95,9 +95,18 @@ tasks {
         }
     }
 
+    named<AbstractArchiveTask>("distTar") {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+
+    named<AbstractArchiveTask>("distZip") {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+
     // https://stackoverflow.com/questions/41444916/multiple-artifacts-issue-with-deploying-zip-to-nexus
     named<AbstractArchiveTask>("bootDistTar") {
         archiveClassifier = "bootTar"
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
     }
 
     named<AbstractArchiveTask>("bootDistZip") {
@@ -125,6 +134,7 @@ tasks {
 
     withType<BootJar> {
         archiveFileName = "Lavalink.jar"
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
 
         if (findProperty("targetPlatform") == "musl") {
             archiveFileName = "Lavalink-musl.jar"

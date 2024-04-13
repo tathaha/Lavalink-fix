@@ -66,9 +66,6 @@ jobs:
       - name: Execute Gradle build
         run: ./gradlew build -PtargetPlatform=musl
 
-      - name: Publish to Maven
-        run: ./gradlew publish -PMAVEN_USERNAME=$MAVEN_USERNAME -PMAVEN_PASSWORD=$MAVEN_PASSWORD
-
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:

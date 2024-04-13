@@ -8,6 +8,7 @@ on:
       - 'docs/**'
       - '.github/workflows/docs.yml'
       - '.github/workflows/docs-pr.yml'
+  workflow_dispatch:
   workflow_call:
     secrets:
       DOCKER_USERNAME:
